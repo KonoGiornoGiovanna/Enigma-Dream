@@ -1,0 +1,63 @@
+﻿using System;
+using System.Reflection;
+using System.Threading.Tasks;
+
+using Discord;
+using Discord.WebSocket;
+using Discord.Commands;
+
+namespace EnigmaBot
+{
+    class Program
+    {
+        private DiscordSocketClient Client;
+        private CommandService Commands;
+
+        static void Main(string[] args)
+            => new Program().MainAsync().GetAwaiter().GetResult(); // Start MainAsync method when program is starting
+
+        private async Task MainAsync()
+        {
+            Client = new DiscordSocketClient(new DiscordSocketConfig { });
+
+            Commands = new CommandService(new CommandServiceConfig
+            {
+                CaseSensitiveCommands = true,
+                DefaultRunMode = RunMode.Async,
+                LogLevel = LogSeverity.Debug
+            });
+
+            Client.MessageReceived += Client_MessageReceived;
+            await Commands.AddModulesAsync(Assembly.GetEntryAssembly(), null);
+
+            Client.Ready += Client_Ready;
+
+            string Token = "NTk3NDEwOTU2OTY4MTk4MTc1.XSHt2w.aPFXe8svWtO8J9ROWDSLSjpgeAs";
+            await Client.LoginAsync(TokenType.Bot, Token);
+            await Client.StartAsync();
+
+            await Task.Delay(-1);
+        }
+
+        private async Task Client_Ready()
+        {
+            await Client.SetGameAsync("Help from the Shadow");
+        }
+
+        private async Task Client_MessageReceived(SocketMessage MessageParam)
+        {
+            //Configure the commands
+            var Message = MessageParam as SocketUserMessage;
+            var Context = new SocketCommandContext(Client, Message);
+
+            if (Context.Message == null || Context.Message.Content == "") return;
+            if (Context.User.IsBot) return;
+
+            int ArgPos = 0;
+            if (!(Message.HasStringPrefix("!", ref ArgPos) || Message.HasMentionPrefix(Client.CurrentUser, ref ArgPos))) return;
+
+            var Result = await Commands.ExecuteAsync(Context, ArgPos, null);
+            if (Result.IsSuccess) Console.WriteLine($"{DateTime.Now} at Commands] Something went wrong with executing a command. Text {Message.Content} | Error: {Result.ErrorReason}");
+        }
+    }
+}

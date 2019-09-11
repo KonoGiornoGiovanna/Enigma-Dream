@@ -1,0 +1,11 @@
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\bin\Debug\netcoreapp2.1\EnigmaBot.deps.json
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\bin\Debug\netcoreapp2.1\EnigmaBot.runtimeconfig.json
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\bin\Debug\netcoreapp2.1\EnigmaBot.runtimeconfig.dev.json
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\bin\Debug\netcoreapp2.1\EnigmaBot.dll
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\obj\Debug\netcoreapp2.1\EnigmaBot.csprojAssemblyReference.cache
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\obj\Debug\netcoreapp2.1\EnigmaBot.csproj.CoreCompileInputs.cache
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\obj\Debug\netcoreapp2.1\EnigmaBot.AssemblyInfoInputs.cache
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\obj\Debug\netcoreapp2.1\EnigmaBot.AssemblyInfo.cs
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\bin\Debug\netcoreapp2.1\EnigmaBot.pdb
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\obj\Debug\netcoreapp2.1\EnigmaBot.dll
+D:\DiscordBotEnigma\EnigmaBot\EnigmaBot\obj\Debug\netcoreapp2.1\EnigmaBot.pdb
